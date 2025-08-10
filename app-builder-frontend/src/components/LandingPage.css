@@ -1,0 +1,315 @@
+.landing-container, .tf-landing-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #232946 0%, #3b3b5b 40%, #ff6b00 100%);
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.tf-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  background: transparent;
+  font-size: 1.1rem;
+}
+.tf-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.tf-brand {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  margin-left: 0.2rem;
+}
+.tf-navbar-center {
+  display: flex;
+  gap: 2rem;
+}
+.tf-nav-link {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.tf-nav-link:hover {
+  opacity: 1;
+}
+.tf-navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+.tf-login-btn {
+  background: #232946;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tf-login-btn:hover {
+  background: #353570;
+}
+.tf-getstarted-btn {
+  background: #fff;
+  color: #232946;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tf-getstarted-btn:hover {
+  background: #ff6b00;
+  color: #fff;
+}
+
+.tf-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+.tf-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.tf-gradient-text {
+  background: linear-gradient(90deg, #ff6b00 0%, #ff2d55 50%, #6b47ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tf-hero-subtitle {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.tf-slogan {
+  display: block;
+  font-size: 1.1rem;
+  color: #ffb86b;
+  margin-top: 0.5rem;
+}
+
+.tf-chatbox {
+  background: #232323ee;
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px 0 #0005;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  margin-top: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tf-chat-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.7rem 0.5rem;
+  outline: none;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+.tf-chat-input:disabled {
+  opacity: 0.7;
+}
+.tf-chatbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: flex-start;
+}
+.tf-chat-action-btn {
+  background: #232946;
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.3rem 1.1rem;
+  font-size: 1rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: background 0.2s, opacity 0.2s;
+}
+.tf-chat-action-btn:hover {
+  background: #353570;
+  opacity: 1;
+}
+.tf-chat-model {
+  margin-left: auto;
+  margin-right: 0.7rem;
+  background: #353570;
+  color: #fff;
+  border-radius: 1.2rem;
+  padding: 0.3rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.tf-chat-send-btn {
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.tf-chat-send-btn:hover {
+  background: #ff2d55;
+}
+
+.landing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem 2rem 1rem;
+  background: rgba(35, 41, 70, 0.95);
+}
+
+.landing-logo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+}
+
+.landing-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0.2rem 0 0.5rem 0;
+  color: #ffb800;
+  text-shadow: 0 2px 8px #000a;
+}
+
+.landing-slogan {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.landing-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem 3rem 1rem;
+}
+
+.landing-cta {
+  background: rgba(255, 184, 0, 0.12);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 24px #0002;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.landing-cta h2 {
+  font-size: 2rem;
+  color: #ffb800;
+  margin-bottom: 0.7rem;
+}
+
+.landing-cta p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 1.2rem;
+}
+
+.landing-get-started {
+  display: inline-block;
+  background: #ffb800;
+  color: #232946;
+  font-weight: 600;
+  padding: 0.8rem 2.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #0003;
+  transition: background 0.2s, color 0.2s;
+}
+.landing-get-started:hover {
+  background: #ffd966;
+  color: #121629;
+}
+
+.landing-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.feature-card {
+  background: rgba(35, 41, 70, 0.85);
+  border: 1.5px solid #ffb80044;
+  border-radius: 14px;
+  padding: 1.3rem 1.7rem;
+  min-width: 220px;
+  max-width: 270px;
+  box-shadow: 0 2px 12px #0002;
+  text-align: left;
+}
+
+.feature-card h3 {
+  color: #ffb800;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+.landing-footer {
+  text-align: center;
+  padding: 1.2rem 0 0.7rem 0;
+  font-size: 1rem;
+  color: #b0b0b0;
+  background: none;
+}
+
+@media (max-width: 700px) {
+  .tf-navbar, .tf-navbar-center, .tf-navbar-right {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+  .tf-hero-title {
+    font-size: 2.1rem;
+  }
+  .tf-hero-subtitle {
+    font-size: 1rem;
+  }
+  .tf-chatbox {
+    padding: 1.2rem 1rem 1rem 1rem;
+  }
+}
