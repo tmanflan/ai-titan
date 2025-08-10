@@ -1,0 +1,31 @@
+{
+  "name": "TitanForge",
+  "short_name": "TitanForge",
+  "description": "Meta-app builder: visually or textually define app components, generate deployable code with AI.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#22223b",
+  "icons": [
+    {
+      "src": "icons/Square44x44Logo.png",
+      "sizes": "44x44",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Square150x150Logo.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Square310x310Logo.png",
+      "sizes": "310x310",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Wide310x150Logo.png",
+      "sizes": "310x150",
+      "type": "image/png"
+    }
+  ]
+}

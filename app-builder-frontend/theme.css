@@ -1,0 +1,64 @@
+/* App-wide color theme */
+:root {
+  --color-bg: #111111;
+  --color-trim: #8B0000;
+  --color-text: #FFD600;
+  --color-accent-grey: #444654;
+  --color-accent-purple: #7C3AED;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+}
+
+aside, main {
+  background: var(--color-accent-grey);
+  color: var(--color-text);
+}
+
+h3 {
+  color: var(--color-trim);
+}
+
+button {
+  background: var(--color-trim);
+  color: var(--color-text);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px var(--color-accent-purple);
+  transition: background 0.2s;
+}
+button:hover {
+  background: var(--color-accent-purple);
+}
+
+input, select {
+  background: var(--color-accent-grey);
+  color: var(--color-text);
+  border: 1px solid var(--color-accent-purple);
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 4px 0;
+}
+
+/* Canvas drop zone */
+main {
+  border: 2px dashed var(--color-trim);
+}
+
+/* Palette and property editor */
+aside {
+  border-right: 2px solid var(--color-trim);
+}
+
+/* Selected component highlight */
+.selected {
+  outline: 2px solid var(--color-accent-purple);
+}
