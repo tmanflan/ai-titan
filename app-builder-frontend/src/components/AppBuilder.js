@@ -38,7 +38,7 @@ export default function TitanForge() {
           selectedComponent={components[selectedIdx]}
           onChange={handlePropertyChange}
         />
-        <ExportButton components={components} />
+        <ExportButton components={components} description={description} />
       </div>
     </div>
   );

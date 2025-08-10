@@ -1,22 +1,37 @@
 require('dotenv').config();
+const path = require('path');
+if (!process.env.DeepSeek) {
+  try {
+    require('dotenv').config({ path: path.resolve(__dirname, '../Secrets.env') });
+  } catch (e) {
+    // ignore
+  }
+}
 const express = require('express');
+const cors = require('cors');
+const multer = require('multer');
 const { callDeepSeek } = require('./deepseek');
 const { img2code } = require('./img2code_integration');
-const multer = require('multer');
+const { createAppWithAgent } = require('./agent');
+
+const app = express();
 const upload = multer({ dest: 'uploads/' });
+
+app.use(cors());
+app.use(express.json());
+
 // POST /image-to-code: Accepts an image, extracts UI, sends to DeepSeek, returns code
 app.post('/image-to-code', upload.single('image'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No image uploaded' });
   try {
-    // Step 1: Extract UI description/code from image
     const uiDescription = await img2code(req.file.path);
-    // Step 2: Send to DeepSeek for code generation
     const result = await callDeepSeek(uiDescription);
     res.json({ uiDescription, code: result });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+
 // POST /deepseek: Accepts a prompt and returns DeepSeek API response
 app.post('/deepseek', async (req, res) => {
   const { prompt } = req.body;
@@ -28,10 +43,6 @@ app.post('/deepseek', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-const cors = require('cors');
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 // POST /generate: Accepts app definition and returns generated React code
 app.post('/generate', (req, res) => {
@@ -40,8 +51,22 @@ app.post('/generate', (req, res) => {
   res.send({ code: generatedCode });
 });
 
+// POST /agent/create-app: Uses the AI agent to generate code from description and components
+app.post('/agent/create-app', async (req, res) => {
+  const { description, components } = req.body || {};
+  if (!description && (!components || components.length === 0)) {
+    return res.status(400).json({ error: 'Provide description and/or components' });
+  }
+  try {
+    const { code, modelRaw } = await createAppWithAgent({ description, components });
+    res.json({ code, modelRaw });
+  } catch (err) {
+    const fallback = generateReactApp({ components: components || [] });
+    res.json({ code: fallback, modelRaw: { error: err.message, fallback: true } });
+  }
+});
+
 function generateReactApp(definition) {
-  // Simple code generation: map components to JSX
   const renderComponent = (c) => {
     switch (c.type) {
       case 'Button':
@@ -54,7 +79,7 @@ function generateReactApp(definition) {
         return `<div>Unknown</div>`;
     }
   };
-  return `import React from 'react';\n\nfunction App() {\n  return (\n    <div>\n      ${definition.components.map(renderComponent).join('\n      ')}\n    </div>\n  );\n}\n\nexport default App;\n`;
+  return `import React from 'react';\n\nfunction App() {\n  return (\n    <div>\n      ${(definition.components || []).map(renderComponent).join('\n      ')}\n    </div>\n  );\n}\n\nexport default App;\n`;
 }
 
 const PORT = process.env.PORT || 4000;

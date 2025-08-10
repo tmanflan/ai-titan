@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { generateCode } from './api';
+import { generateCode, generateWithAgent } from './api';
 import { downloadCode } from './download';
 
-export default function ExportButton({ components }) {
+export default function ExportButton({ components, description }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -10,7 +10,9 @@ export default function ExportButton({ components }) {
     setLoading(true);
     setError(null);
     try {
-      const code = await generateCode(components);
+      const code = description && description.trim().length > 0
+        ? await generateWithAgent(description, components)
+        : await generateCode(components);
       downloadCode('App.js', code);
     } catch (e) {
       setError('Failed to generate code');
