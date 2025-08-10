@@ -12,7 +12,7 @@ export default function ExportButton({ components }) {
     try {
       const code = await generateCode(components);
       downloadCode('App.js', code);
-    } catch (e) {
+    } catch {
       setError('Failed to generate code');
     } finally {
       setLoading(false);

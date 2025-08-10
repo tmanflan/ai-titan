@@ -9,7 +9,7 @@ import EarlyWarriorSpecials from './EarlyWarriorSpecials';
 export default function TitanForge() {
   const [components, setComponents] = useState([]);
   const [selectedIdx, setSelectedIdx] = useState(null);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState('') // eslint-disable-line no-unused-vars
 
   const handleDragStart = (e, component) => {
     e.dataTransfer.setData('component', JSON.stringify(component));

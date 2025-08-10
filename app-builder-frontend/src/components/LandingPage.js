@@ -4,6 +4,11 @@ import titanLogo from '../assets/titanforge-logo.png';
 // TitanForge logo SVG (replace with your actual logo if available)
 
 const slogan = "Warriors Forge The Future";
+const navLinks = [
+  { label: 'Features', href: '#features' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Docs', href: '#docs' },
+];
 
 const LandingPage = () => (
   <div className="landing-container">

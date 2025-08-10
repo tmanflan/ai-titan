@@ -2,5 +2,8 @@
   "dependencies": {
     "dotenv": "^17.2.1",
     "multer": "^2.0.2"
+  },
+  "scripts": {
+    "agents": "node tools/agent-runner.js"
   }
 }

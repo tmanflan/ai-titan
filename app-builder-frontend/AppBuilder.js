@@ -19,8 +19,11 @@ export default function TitanForge() {
         body: JSON.stringify({ description }),
       });
       const data = await res.json();
+      if (!data || typeof data.code !== 'string') {
+        throw new Error('Invalid response');
+      }
       setGeneratedCode(data.code);
-    } catch (e) {
+    } catch (err) {
       setError('Failed to generate code.');
     } finally {
       setLoading(false);

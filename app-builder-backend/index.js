@@ -1,9 +1,29 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
 const { callDeepSeek } = require('./deepseek');
 const { img2code } = require('./img2code_integration');
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Ensure uploads directory exists
+const uploadsDir = path.resolve(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+const upload = multer({ dest: uploadsDir });
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 // POST /image-to-code: Accepts an image, extracts UI, sends to DeepSeek, returns code
 app.post('/image-to-code', upload.single('image'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No image uploaded' });
@@ -17,6 +37,7 @@ app.post('/image-to-code', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 // POST /deepseek: Accepts a prompt and returns DeepSeek API response
 app.post('/deepseek', async (req, res) => {
   const { prompt } = req.body;
@@ -28,10 +49,6 @@ app.post('/deepseek', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-const cors = require('cors');
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 // POST /generate: Accepts app definition and returns generated React code
 app.post('/generate', (req, res) => {
