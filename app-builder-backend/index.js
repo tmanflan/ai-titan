@@ -1,9 +1,16 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const multer = require('multer');
 const { callDeepSeek } = require('./deepseek');
 const { img2code } = require('./img2code_integration');
-const multer = require('multer');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 const upload = multer({ dest: 'uploads/' });
+
 // POST /image-to-code: Accepts an image, extracts UI, sends to DeepSeek, returns code
 app.post('/image-to-code', upload.single('image'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No image uploaded' });
@@ -17,6 +24,7 @@ app.post('/image-to-code', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 // POST /deepseek: Accepts a prompt and returns DeepSeek API response
 app.post('/deepseek', async (req, res) => {
   const { prompt } = req.body;
@@ -28,10 +36,6 @@ app.post('/deepseek', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-const cors = require('cors');
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 // POST /generate: Accepts app definition and returns generated React code
 app.post('/generate', (req, res) => {
