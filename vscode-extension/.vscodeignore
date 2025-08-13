@@ -1,0 +1,48 @@
+# VS Code Extension Packaging Configuration
+# Files and directories to exclude from the VSIX package
+
+# Development files
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+# Include compiled output
+!out/**/*.js
+!out/**/*.js.map
+
+# Exclude dependencies and logs
+node_modules/**
+.env
+.env.*
+*.log
+*.vsix
+
+# Exclude build scripts and documentation
+build-vsix.ps1
+build-vsix.js
+ICON_GUIDE.md
+MARKETPLACE_GUIDE.md
+agent-rules.json
+pricing-config.json
+
+# IMPORTANT: Include images directory for marketplace icons
+# The images/ directory is included by default
+# This ensures all PNG icons display properly in VS Code marketplace
+
+# Include essential files for marketplace
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Ensure images directory is explicitly included
+!images/**
+!images/*.png
+!images/*.svg

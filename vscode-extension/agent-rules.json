@@ -1,0 +1,181 @@
+{
+  "agentOperationalRules": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-19",
+    "strictCompliance": true,
+    "coreRules": {
+      "noSimulations": {
+        "rule": "NEVER use simulations, mock data, or fake implementations",
+        "description": "All code, data, and functionality must be real and functional",
+        "enforcement": "mandatory",
+        "violations": [
+          "Creating placeholder functions that don't work",
+          "Using mock APIs or fake data sources",
+          "Implementing dummy responses",
+          "Creating non-functional UI elements"
+        ],
+        "requirements": [
+          "All functions must have complete implementation",
+          "All API calls must connect to real endpoints",
+          "All data must be genuine and validated",
+          "All features must be fully operational"
+        ]
+      },
+      "noPlaceholders": {
+        "rule": "ELIMINATE all placeholder content and temporary implementations",
+        "description": "Every piece of code, text, and functionality must be production-ready",
+        "enforcement": "mandatory",
+        "violations": [
+          "TODO comments without immediate implementation",
+          "Placeholder text like 'Lorem ipsum' or 'Coming soon'",
+          "Empty function bodies with comments",
+          "Temporary hardcoded values",
+          "Incomplete error handling"
+        ],
+        "requirements": [
+          "Complete all function implementations immediately",
+          "Replace all placeholder text with real content",
+          "Implement proper error handling for all scenarios",
+          "Use real configuration values, not hardcoded placeholders"
+        ]
+      },
+      "continuousLearning": {
+        "rule": "CONTINUOUSLY learn and improve from every interaction",
+        "description": "Agent must evolve and enhance capabilities through experience",
+        "enforcement": "mandatory",
+        "mechanisms": [
+          "Analyze user feedback and adapt responses",
+          "Learn from successful code patterns",
+          "Identify and fix recurring issues",
+          "Optimize performance based on usage patterns",
+          "Update knowledge base with new discoveries"
+        ],
+        "learningAreas": [
+          "Code optimization techniques",
+          "User preference patterns",
+          "Error resolution strategies",
+          "Performance improvement methods",
+          "Best practice implementations"
+        ],
+        "adaptationRules": [
+          "Track successful vs failed implementations",
+          "Maintain knowledge of effective solutions",
+          "Continuously refine code generation quality",
+          "Learn from user corrections and modifications"
+        ]
+      },
+      "realImplementation": {
+        "rule": "DELIVER only real, working, production-ready solutions",
+        "description": "Every solution must be immediately usable and fully functional",
+        "enforcement": "mandatory",
+        "standards": [
+          "All code must compile and run without errors",
+          "All features must be completely implemented",
+          "All integrations must work with real services",
+          "All UI elements must be fully interactive",
+          "All data operations must be persistent and reliable"
+        ],
+        "qualityChecks": [
+          "Functional testing of all features",
+          "Integration testing with external services",
+          "Performance validation under real conditions",
+          "Security verification for all implementations",
+          "User experience validation"
+        ]
+      },
+      "authenticityEnforcement": {
+        "rule": "ENSURE all implementations are authentic and genuine",
+        "description": "No fake, simulated, or temporary solutions allowed",
+        "enforcement": "mandatory",
+        "verification": [
+          "All APIs must connect to real endpoints",
+          "All databases must contain real data",
+          "All calculations must produce accurate results",
+          "All user interactions must have real consequences",
+          "All integrations must work with actual services"
+        ],
+        "prohibitions": [
+          "Fake success messages",
+          "Simulated processing delays",
+          "Mock authentication systems",
+          "Placeholder error messages",
+          "Dummy data generators"
+        ]
+      }
+    },
+    "implementationGuidelines": {
+      "codeQuality": {
+        "standards": [
+          "Write clean, maintainable, and well-documented code",
+          "Follow established coding conventions and best practices",
+          "Implement comprehensive error handling",
+          "Ensure code is scalable and performant",
+          "Include proper logging and monitoring"
+        ],
+        "requirements": [
+          "All functions must have clear purpose and implementation",
+          "All variables must have meaningful names",
+          "All edge cases must be handled",
+          "All dependencies must be properly managed",
+          "All security considerations must be addressed"
+        ]
+      },
+      "userExperience": {
+        "principles": [
+          "Prioritize user needs and workflows",
+          "Provide clear and helpful feedback",
+          "Ensure intuitive and responsive interfaces",
+          "Implement robust error recovery",
+          "Maintain consistent behavior across features"
+        ],
+        "deliverables": [
+          "Fully functional user interfaces",
+          "Complete feature implementations",
+          "Reliable data persistence",
+          "Effective error messaging",
+          "Comprehensive help and documentation"
+        ]
+      },
+      "systemIntegration": {
+        "requirements": [
+          "All integrations must work with real external systems",
+          "All data exchanges must be secure and validated",
+          "All API calls must handle real responses and errors",
+          "All configurations must be environment-appropriate",
+          "All dependencies must be properly versioned and managed"
+        ]
+      }
+    },
+    "complianceMonitoring": {
+      "checkpoints": [
+        "Before any code implementation",
+        "During feature development",
+        "Before user delivery",
+        "After user feedback",
+        "During system updates"
+      ],
+      "violations": {
+        "reporting": "All rule violations must be immediately identified and corrected",
+        "consequences": "Any placeholder or simulated content must be replaced with real implementation",
+        "prevention": "Proactive measures to prevent rule violations in future implementations"
+      }
+    },
+    "continuousImprovement": {
+      "feedback": {
+        "collection": "Gather user feedback on all implementations",
+        "analysis": "Analyze patterns in user requests and preferences",
+        "application": "Apply learnings to improve future implementations"
+      },
+      "optimization": {
+        "performance": "Continuously optimize code and system performance",
+        "usability": "Enhance user experience based on usage patterns",
+        "reliability": "Improve system reliability and error handling"
+      },
+      "knowledge": {
+        "expansion": "Continuously expand knowledge of best practices and new technologies",
+        "application": "Apply new knowledge to enhance implementation quality",
+        "sharing": "Document and share successful patterns and solutions"
+      }
+    }
+  }
+}

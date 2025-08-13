@@ -1,0 +1,26 @@
+[project]
+name = "ai-titan"
+version = "0.1.0"
+description = "AI Titan - DeepSeek Agent Automation"
+authors = [{name = "AI Titan Team"}]
+requires-python = ">=3.8"
+dependencies = [
+  "openai",
+  "anthropic",
+  "python-dotenv",
+  "argparse"
+]
+
+[project.scripts]
+deepseek-agent = "ai_titan.agent:main"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ai_titan*"]
+exclude = ["supabase*", "node_modules*", "app-builder-*", "trae-agent*"]
+
+[tool.uv]
+all-extras = true

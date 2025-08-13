@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ExportButton from './ExportButton';
-import ImageUploader from './ImageUploader';
+import ExportButton from './src/components/ExportButton';
+import ImageUploader from './src/components/ImageUploader';
 
 export default function TitanForge() {
   const [description, setDescription] = useState('');
