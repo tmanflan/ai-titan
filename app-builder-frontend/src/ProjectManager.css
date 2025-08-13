@@ -1,0 +1,101 @@
+.project-manager-container {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-manager-container h3,
+.project-manager-container h4 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.save-project {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.save-project input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.save-project button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-project button:hover {
+  background-color: #218838;
+}
+
+.project-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+  color: #333;
+  text-align: center;
+}
+
+.project-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.project-list li:last-child {
+  border-bottom: none;
+}
+
+.project-list li span {
+  flex-grow: 1;
+  color: #555;
+}
+
+.project-list li button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.project-list li button:nth-of-type(1) {
+  background-color: #007bff;
+  color: white;
+}
+
+.project-list li button:nth-of-type(1):hover {
+  background-color: #0056b3;
+}
+
+.project-list li button:nth-of-type(2) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.project-list li button:nth-of-type(2):hover {
+  background-color: #c82333;
+}

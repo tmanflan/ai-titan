@@ -1,9 +1,15 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const { callDeepSeek } = require('./deepseek');
 const { img2code } = require('./img2code_integration');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 // POST /image-to-code: Accepts an image, extracts UI, sends to DeepSeek, returns code
 app.post('/image-to-code', upload.single('image'), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No image uploaded' });
@@ -17,6 +23,7 @@ app.post('/image-to-code', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 // POST /deepseek: Accepts a prompt and returns DeepSeek API response
 app.post('/deepseek', async (req, res) => {
   const { prompt } = req.body;
@@ -28,10 +35,6 @@ app.post('/deepseek', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-const cors = require('cors');
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 // POST /generate: Accepts app definition and returns generated React code
 app.post('/generate', (req, res) => {
@@ -54,7 +57,50 @@ function generateReactApp(definition) {
         return `<div>Unknown</div>`;
     }
   };
-  return `import React from 'react';\n\nfunction App() {\n  return (\n    <div>\n      ${definition.components.map(renderComponent).join('\n      ')}\n    </div>\n  );\n}\n\nexport default App;\n`;
+  
+  // Handle both text description and component array
+  if (definition.description) {
+    // Simple placeholder implementation for text-to-code
+    return `import React from 'react';
+
+function App() {
+  return (
+    <div>
+      <h1>App from Description</h1>
+      <p>Based on: "${definition.description}"</p>
+    </div>
+  );
+}
+
+export default App;
+`;
+  } else if (definition.components && Array.isArray(definition.components)) {
+    return `import React from 'react';
+
+function App() {
+  return (
+    <div>
+      ${definition.components.map(renderComponent).join('\n      ')}
+    </div>
+  );
+}
+
+export default App;
+`;
+  } else {
+    return `import React from 'react';
+
+function App() {
+  return (
+    <div>
+      <p>No valid definition provided</p>
+    </div>
+  );
+}
+
+export default App;
+`;
+  }
 }
 
 const PORT = process.env.PORT || 4000;
